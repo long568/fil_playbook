@@ -30,19 +30,16 @@
     - name: Copy P service
       copy:
         src: /home/lo/fc/lotus-wp.service
-        dest: /home/lo/fc/lotus-wp.service
+        dest: /usr/lib/systemd/system/lotus-wp.service
         owner: "lo"
         group: "lo"
 
     - name: Copy C service
       copy:
         src: /home/lo/fc/lotus-wc.service
-        dest: /home/lo/fc/lotus-wc.service
+        dest: /usr/lib/systemd/system/lotus-wc.service
         owner: "lo"
         group: "lo"
-
-    - name: Install service
-      shell: cp /home/lo/fc/lotus-w*.service /usr/lib/systemd/system/
 
     - name: Reload service
       ansible.builtin.systemd:

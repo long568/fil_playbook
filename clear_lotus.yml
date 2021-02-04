@@ -1,4 +1,17 @@
 - hosts: w
   become: yes
   tasks:
-    - shell: rm -rf /lotus/worker/sealed/* /lotus/worker/unsealed/* /lotus/worker/cache/*
+    - name: Clean sealed
+      file:
+        path: "/lotus/worker/sealed/"
+        state: absent
+
+    - name: Clean unsealed
+      file:
+        path: "/lotus/worker/unsealed/"
+        state: absent
+
+    - name: Clean cache
+      file:
+        path: "/lotus/worker/cache/"
+        state: absent

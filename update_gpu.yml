@@ -1,7 +1,7 @@
 - hosts: w
   become: yes
   tasks:
-    - name: Copy GPU  Driver
+    - name: Copy GPU Driver
       copy:
         src: /home/lo/fc/NVIDIA-Linux-x86_64-460.39.run
         dest: /home/lo/fc/NVIDIA-Linux-x86_64.run
@@ -12,5 +12,7 @@
     - name: Install GPU Driver
       shell: /home/lo/fc/NVIDIA-Linux-x86_64.run -s
 
-    - name: Clean
-      shell: rm -f /home/lo/fc/NVIDIA-Linux-*
+    - name: Clean GPU Driver
+      file:
+        path: "/home/lo/fc/NVIDIA-Linux-x86_64.run"
+        state: absent
