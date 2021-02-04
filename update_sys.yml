@@ -1,0 +1,9 @@
+- hosts: w
+  become: yes
+  tasks:
+    - name: Upgrade all apt packages
+      apt: update_cache=yes cache_valid_time=3600 upgrade=dist force_apt_get=yes
+    
+    - name: Reboot system
+      reboot:
+        reboot_timeout: 900

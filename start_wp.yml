@@ -1,0 +1,7 @@
+- hosts: wp
+  become: yes
+  tasks:
+    - name: Start Ps
+      systemd:
+        name: lotus-wp
+        state: started

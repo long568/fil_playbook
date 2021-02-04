@@ -1,0 +1,53 @@
+- hosts: w
+  become: yes
+  tasks:
+    - name: Update apt-get repo and cache
+      apt: pkg={{ item }} update_cache=yes cache_valid_time=3600
+      with_items:
+        - mesa-opencl-icd
+        - ocl-icd-opencl-dev
+        - gcc
+        - git
+        - bzr
+        - jq
+        - pkg-config
+        - curl
+        - clang 
+        - build-essential
+        - libhwloc-dev
+
+    - name: Upgrade all apt packages
+      apt: upgrade=dist force_apt_get=yes
+
+    - name: Copy lotus-worker
+      copy:
+        src: /home/lo/fc/bin/lotus-worker
+        dest: /home/lo/fc/bin/lotus-worker
+        owner: "lo"
+        group: "lo"
+        mode: +x
+
+    - name: Copy P service
+      copy:
+        src: /home/lo/fc/lotus-wp.service
+        dest: /home/lo/fc/lotus-wp.service
+        owner: "lo"
+        group: "lo"
+
+    - name: Copy C service
+      copy:
+        src: /home/lo/fc/lotus-wc.service
+        dest: /home/lo/fc/lotus-wc.service
+        owner: "lo"
+        group: "lo"
+
+    - name: Install service
+      shell: cp /home/lo/fc/lotus-w*.service /usr/lib/systemd/system/
+
+    - name: Reload service
+      ansible.builtin.systemd:
+        daemon_reload: yes
+
+    - name: Reboot system
+      reboot:
+        reboot_timeout: 900

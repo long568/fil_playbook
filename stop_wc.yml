@@ -1,0 +1,7 @@
+- hosts: wc
+  become: yes
+  tasks:
+    - name: Stop Cs
+      systemd:
+        name: lotus-wc
+        state: stopped

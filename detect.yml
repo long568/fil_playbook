@@ -1,0 +1,5 @@
+- hosts: p
+  become: yes
+  tasks:
+    - name: Hello
+      shell: echo "Hello Ansible !"

@@ -1,0 +1,7 @@
+- hosts: wp
+  become: yes
+  tasks:
+    - name: Stop Ps
+      systemd:
+        name: lotus-wp
+        state: stopped

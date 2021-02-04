@@ -1,0 +1,4 @@
+- hosts: w
+  become: yes
+  tasks:
+    - shell: rm -rf /lotus/worker/sealed/* /lotus/worker/unsealed/* /lotus/worker/cache/*

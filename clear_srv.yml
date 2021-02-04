@@ -1,0 +1,34 @@
+- hosts: w
+  become: yes
+  tasks:
+    - name: Clean old service
+      file:
+        path: "/home/lo/fc/{{ item }}"
+        state: absent
+      with_items:
+        - lotus-wp1.service
+        - lotus-wpn.service
+        - lotus-wp.service
+        - lotus-wc.service
+        - lotus-p1.service
+        - lotus-pc.service
+        - lotus-p.service
+        - lotus-c.service
+
+    - name: Clean old service
+      file:
+        path: "/usr/lib/systemd/system/{{ item }}"
+        state: absent
+      with_items:
+        - lotus-wp1.service
+        - lotus-wpn.service
+        - lotus-wp.service
+        - lotus-wc.service
+        - lotus-p1.service
+        - lotus-pc.service
+        - lotus-p.service
+        - lotus-c.servic
+
+    - name: Reload service
+      ansible.builtin.systemd:
+        daemon_reload: yes

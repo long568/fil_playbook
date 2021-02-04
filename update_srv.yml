@@ -1,0 +1,16 @@
+- hosts: w
+  become: yes
+  tasks:
+    - name: Copy P service
+      copy:
+        src: /home/lo/fc/lotus-wp.service
+        dest: /usr/lib/systemd/system/lotus-wp.service
+
+    - name: Copy C service
+      copy:
+        src: /home/lo/fc/lotus-wc.service
+        dest: /usr/lib/systemd/system/lotus-wc.service
+
+    - name: Reload service
+      ansible.builtin.systemd:
+        daemon_reload: yes
