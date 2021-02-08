@@ -1,4 +1,4 @@
-- hosts: p
+- hosts: w
   become: yes
   tasks:
     - name: Hello
