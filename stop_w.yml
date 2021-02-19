@@ -1,0 +1,12 @@
+- hosts: w
+  become: yes
+  tasks:
+    - name: Stop Ps
+      systemd:
+        name: lotus-wp
+        state: stopped
+
+    - name: Stop Cs
+      systemd:
+        name: lotus-wc
+        state: stopped
