@@ -6,6 +6,8 @@
         path: "/home/lo/fc/{{ item }}"
         state: absent
       with_items:
+        - lotus-w-p.service
+        - lotus-w-c.service
         - lotus-wp1.service
         - lotus-wpn.service
         - lotus-wp.service
@@ -20,6 +22,8 @@
         path: "/usr/lib/systemd/system/{{ item }}"
         state: absent
       with_items:
+        - lotus-w-p.service
+        - lotus-w-c.service
         - lotus-wp1.service
         - lotus-wpn.service
         - lotus-wp.service

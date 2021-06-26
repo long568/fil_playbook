@@ -3,5 +3,5 @@
   tasks:
     - name: Start Ps
       systemd:
-        name: lotus-wp
+        name: lotus-w-p
         state: started

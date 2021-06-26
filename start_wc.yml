@@ -3,5 +3,5 @@
   tasks:
     - name: Start Cs
       systemd:
-        name: lotus-wc
+        name: lotus-w-c
         state: started

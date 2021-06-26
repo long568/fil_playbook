@@ -3,5 +3,5 @@
   tasks:
     - name: Stop Ps
       systemd:
-        name: lotus-wp
+        name: lotus-w-p
         state: stopped

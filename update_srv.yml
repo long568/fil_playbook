@@ -3,13 +3,13 @@
   tasks:
     - name: Copy P service
       copy:
-        src: /home/lo/fc/lotus-wp.service
-        dest: /usr/lib/systemd/system/lotus-wp.service
+        src: /home/lo/fc/lotus-w-p.service
+        dest: /usr/lib/systemd/system/lotus-w-p.service
 
     - name: Copy C service
       copy:
-        src: /home/lo/fc/lotus-wc.service
-        dest: /usr/lib/systemd/system/lotus-wc.service
+        src: /home/lo/fc/lotus-w-c.service
+        dest: /usr/lib/systemd/system/lotus-w-c.service
 
     - name: Reload service
       ansible.builtin.systemd:

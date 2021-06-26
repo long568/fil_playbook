@@ -3,5 +3,5 @@
   tasks:
     - name: Stop Cs
       systemd:
-        name: lotus-wc
+        name: lotus-w-c
         state: stopped

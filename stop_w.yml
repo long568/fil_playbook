@@ -3,10 +3,10 @@
   tasks:
     - name: Stop Ps
       systemd:
-        name: lotus-wp
+        name: lotus-w-p
         state: stopped
 
     - name: Stop Cs
       systemd:
-        name: lotus-wc
+        name: lotus-w-c
         state: stopped
