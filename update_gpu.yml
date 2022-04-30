@@ -3,7 +3,7 @@
   tasks:
     - name: Copy GPU Driver
       copy:
-        src: /home/lo/fc/NVIDIA-Linux-x86_64-460.80.run
+        src: /home/lo/fc/NVIDIA-Linux-x86_64-460.91.03.run
         dest: /home/lo/fc/NVIDIA-Linux-x86_64.run
         owner: "lo"
         group: "lo"
