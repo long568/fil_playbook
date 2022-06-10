@@ -1,0 +1,7 @@
+- hosts: wa
+  become: yes
+  tasks:
+    - name: Start As
+      systemd:
+        name: lotus-w-a
+        state: started

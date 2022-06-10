@@ -1,0 +1,36 @@
+[n]
+192.168.1.2     ansible_connection=ssh ansible_user=lo ansible_password=<PWD> ansible_sudo_pass=<PWD>
+
+[m]
+192.168.1.9     ansible_connection=ssh ansible_user=lo ansible_password=<PWD> ansible_sudo_pass=<PWD>
+
+[wa]
+192.168.1.4     ansible_connection=ssh ansible_user=lo ansible_password=<PWD> ansible_sudo_pass=<PWD>
+
+[wp]
+192.168.1.[5:6] ansible_connection=ssh ansible_user=lo ansible_password=<PWD> ansible_sudo_pass=<PWD>
+
+[wc]
+192.168.1.8     ansible_connection=ssh ansible_user=lo ansible_password=<PWD> ansible_sudo_pass=<PWD>
+
+[nm:children]
+n
+m
+
+[wcache:children]
+wa
+wp
+
+[wgpu:children]
+wp
+wc
+
+[w:children]
+wa
+wp
+wc
+
+[all:children]
+n
+m
+w

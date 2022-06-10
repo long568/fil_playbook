@@ -1,0 +1,26 @@
+- hosts: wa
+  become: yes
+  tasks:
+    - name: Start As
+      systemd:
+        name: lotus-w-a
+        state: started
+      ignore_errors: yes
+
+- hosts: wp
+  become: yes
+  tasks:
+    - name: Start Ps
+      systemd:
+        name: lotus-w-p
+        state: started
+      ignore_errors: yes
+
+- hosts: wc
+  become: yes
+  tasks:
+    - name: Start Cs
+      systemd:
+        name: lotus-w-c
+        state: started
+      ignore_errors: yes

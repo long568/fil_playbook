@@ -1,0 +1,7 @@
+- hosts: wa
+  become: yes
+  tasks:
+    - name: Stop As
+      systemd:
+        name: lotus-w-a
+        state: stopped
