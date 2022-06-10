@@ -1,12 +1,26 @@
-- hosts: w
+- hosts: wa
+  become: yes
+  tasks:
+    - name: Stop As
+      systemd:
+        name: lotus-w-a
+        state: stopped
+      ignore_errors: yes
+
+- hosts: wp
   become: yes
   tasks:
     - name: Stop Ps
       systemd:
         name: lotus-w-p
         state: stopped
+      ignore_errors: yes
 
+- hosts: wc
+  become: yes
+  tasks:
     - name: Stop Cs
       systemd:
         name: lotus-w-c
         state: stopped
+      ignore_errors: yes

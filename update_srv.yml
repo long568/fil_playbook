@@ -1,4 +1,12 @@
-- hosts: w
+- hosts: wa
+  become: yes
+  tasks:
+    - name: Copy A service
+      copy:
+        src: /home/lo/fc/lotus-w-a.service
+        dest: /usr/lib/systemd/system/lotus-w-a.service
+
+- hosts: wp
   become: yes
   tasks:
     - name: Copy P service
@@ -6,11 +14,15 @@
         src: /home/lo/fc/lotus-w-p.service
         dest: /usr/lib/systemd/system/lotus-w-p.service
 
+- hosts: wc
+  become: yes
+  tasks:
     - name: Copy C service
       copy:
         src: /home/lo/fc/lotus-w-c.service
         dest: /usr/lib/systemd/system/lotus-w-c.service
 
+- hosts: w
     - name: Reload service
       ansible.builtin.systemd:
         daemon_reload: yes

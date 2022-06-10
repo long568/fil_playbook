@@ -27,20 +27,58 @@
         group: "lo"
         mode: +x
 
+- hosts: wa
+  become: yes
+  tasks:
+    - name: Copy A service
+      copy:
+        src: /home/lo/fc/lotus-w-a.service
+        dest: /usr/lib/systemd/system/lotus-w-a.service
+        owner: "lo"
+        group: "lo"
+
+- hosts: wp
+  become: yes
+  tasks:
     - name: Copy P service
       copy:
-        src: /home/lo/fc/lotus-wp.service
-        dest: /usr/lib/systemd/system/lotus-wp.service
+        src: /home/lo/fc/lotus-w-p.service
+        dest: /usr/lib/systemd/system/lotus-w-p.service
         owner: "lo"
         group: "lo"
 
+- hosts: wc
+  become: yes
+  tasks:
     - name: Copy C service
       copy:
-        src: /home/lo/fc/lotus-wc.service
-        dest: /usr/lib/systemd/system/lotus-wc.service
+        src: /home/lo/fc/lotus-w-c.service
+        dest: /usr/lib/systemd/system/lotus-w-c.service
         owner: "lo"
         group: "lo"
 
+- hosts: wgpu
+  become: yes
+  tasks:
+    - name: Copy GPU Driver
+      copy:
+        src: /home/lo/fc/NVIDIA-Linux-x86_64-460.91.03.run
+        dest: /home/lo/fc/NVIDIA-Linux-x86_64.run
+        owner: "lo"
+        group: "lo"
+        mode: +x
+
+    - name: Install GPU Driver
+      shell: /home/lo/fc/NVIDIA-Linux-x86_64.run -s
+
+    - name: Clean GPU Driver
+      file:
+        path: "/home/lo/fc/NVIDIA-Linux-x86_64.run"
+        state: absent
+        
+- hosts: w
+  become: yes
+  tasks:
     - name: Reload service
       ansible.builtin.systemd:
         daemon_reload: yes

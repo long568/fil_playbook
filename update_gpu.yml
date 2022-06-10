@@ -1,4 +1,4 @@
-- hosts: w
+- hosts: wgpu
   become: yes
   tasks:
     - name: Copy GPU Driver

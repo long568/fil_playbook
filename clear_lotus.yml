@@ -1,3 +1,21 @@
+- hosts: wa
+  become: yes
+  tasks:
+    - name: Clean sealed
+      file:
+        path: "/lotus/worker/a/sealed/"
+        state: absent
+
+    - name: Clean unsealed
+      file:
+        path: "/lotus/worker/a/unsealed/"
+        state: absent
+
+    - name: Clean cache
+      file:
+        path: "/lotus/worker/a/cache/"
+        state: absent
+
 - hosts: wp
   become: yes
   tasks:
