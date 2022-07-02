@@ -1,0 +1,23 @@
+- hosts: wa
+  become: yes
+  tasks:
+    - name: Copy Worker-A
+      copy:
+        src: /home/lo/fc/bin/lotus-worker-a
+        dest: /home/lo/fc/bin/lotus-worker
+
+- hosts: wp
+  become: yes
+  tasks:
+    - name: Copy Worker-P
+      copy:
+        src: /home/lo/fc/bin/lotus-worker-pc
+        dest: /home/lo/fc/bin/lotus-worker
+
+- hosts: wc
+  become: yes
+  tasks:
+    - name: Copy Worker-C
+      copy:
+        src: /home/lo/fc/bin/lotus-worker-pc
+        dest: /home/lo/fc/bin/lotus-worker
