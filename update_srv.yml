@@ -23,6 +23,8 @@
         dest: /usr/lib/systemd/system/lotus-w-c.service
 
 - hosts: w
+  become: yes
+  tasks:
     - name: Reload service
       ansible.builtin.systemd:
         daemon_reload: yes
